@@ -5,6 +5,7 @@
   <title>Projects | Rihan</title>
   <link rel="icon" type="image/x-icon" href="asset/image/fvc.ico">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -12,7 +13,7 @@
   <!-- NAVBAR -->
    <nav class="navbar">
   <div class="nav-left">
-    <img src="asset/image/profile.jpeg" alt="Profile">
+    <img src="asset/image/profile.jpeg" alt="Profile" loading="lazy">
     <span>Rihan Hidayat</span>
   </div>
 
@@ -27,11 +28,18 @@
 
 
   <!-- PROJECTS -->
-<section class="section">
+<section id="projects" class="section">
   <h2 class="section-title">Projects</h2>
 
+  <div class="filter-container">
+    <button class="filter-btn active" data-filter="all">Semua</button>
+    <button class="filter-btn" data-filter="iot">IoT & Embedded</button>
+    <button class="filter-btn" data-filter="system">System Analyst</button>
+    <button class="filter-btn" data-filter="signal">Signal Processing</button>
+  </div>
+
   <!-- PROJECT 1 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper iot reveal">
     <div class="project-featured">
 
       <div class="project-info">
@@ -71,15 +79,15 @@
       </div>
 
       <div class="project-images">
-        <img src="asset/image/project/diagram.png" alt="System Diagram">
-        <img src="asset/image/project/prototype.png" alt="Testing Project">
+        <img src="asset/image/project/diagram.png" alt="System Diagram" loading="lazy">
+        <img src="asset/image/project/prototype.png" alt="Testing Project" loading="lazy">
       </div>
 
     </div>
   </div>
 
   <!-- PROJECT 2 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper iot reveal" style="transition-delay: 0.1s;">
     <div class="project-featured">
 
       <div class="project-info">
@@ -118,15 +126,15 @@
       </div>
 
       <div class="project-images">
-        <img src="asset/image/project/smart galon 1.png" alt="Smart Galon 1">
-        <img src="asset/image/project/smart galon 2.png" alt="Smart Galon 2">
+        <img src="asset/image/project/smart galon 1.png" alt="Smart Galon 1" loading="lazy">
+        <img src="asset/image/project/smart galon 2.png" alt="Smart Galon 2" loading="lazy">
       </div>
 
     </div>
   </div>
 
   <!-- PROJECT 3 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper iot reveal" style="transition-delay: 0.2s;">
     <div class="project-featured">
 
       <div class="project-info">
@@ -161,15 +169,15 @@
       </div>
 
       <div class="project-images">
-        <img src="asset/image/project/diagram fpga.png" alt="Fpga diagram">
-        <img src="asset/image/project/fpga bukti.jpeg" alt="fpga bukti">
+        <img src="asset/image/project/diagram fpga.png" alt="Fpga diagram" loading="lazy">
+        <img src="asset/image/project/fpga bukti.jpeg" alt="fpga bukti" loading="lazy">
       </div>
 
     </div>
   </div>
 
   <!-- PROJECT 4 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper signal reveal">
     <div class="project-featured">
 
       <div class="project-info">
@@ -205,14 +213,14 @@
       </div>
 
       <div class="project-images">
-        <img src="asset/image/project/pemsin.png" alt="pemsin">
+        <img src="asset/image/project/pemsin.png" alt="pemsin" loading="lazy">
       </div>
 
     </div>
   </div>
 
   <!-- PROJECT 5 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper system reveal" style="transition-delay: 0.1s;">
     <div class="project-featured">
 
       <div class="project-info">
@@ -249,15 +257,15 @@
       </div>
 
       <div class="project-images">
-        <img src="asset/image/project/hirarki kebutuhan sistem.png" alt="hirarki kebutuhan  sistem">
-        <img src="asset/image/project/use case diagram.png" alt="use case diagram">
+        <img src="asset/image/project/hirarki kebutuhan sistem.png" alt="hirarki kebutuhan  sistem" loading="lazy">
+        <img src="asset/image/project/use case diagram.png" alt="use case diagram" loading="lazy">
       </div>
 
     </div>
   </div>
 
   <!-- PROJECT 6 -->
-  <div class="project-wrapper">
+  <div class="project-wrapper system reveal" style="transition-delay: 0.2s;">
     <div class="project-featured">
 
       <div class="project-info">
@@ -293,8 +301,8 @@
       </div>
 
       <div class="project-images">
-        <img src="asset/image/project/sequence.png" alt="sequence diagram">
-        <img src="asset/image/project/class relationship.png" alt="relationship diagram">
+        <img src="asset/image/project/sequence.png" alt="sequence diagram" loading="lazy">
+        <img src="asset/image/project/class relationship.png" alt="relationship diagram" loading="lazy">
       </div>
 
     </div>
@@ -303,6 +311,21 @@
 </section>
 
 
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>© 2024 Rihan Hidayat. Built with &lt;/&gt; & Coffee.</p>
+    <div class="footer-links">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rihanhidayat27@gmail.com" target="_blank" class="footer-icon">
+        <span>📧 Email</span>
+      </a>
+      <a href="https://www.linkedin.com/in/rihan-hidayat-407619289/" target="_blank" class="footer-icon">
+        <span>🔗 LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Kembali ke atas">↑</button>
 
 </body>
 </html>

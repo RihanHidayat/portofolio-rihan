@@ -14,34 +14,53 @@
   box-sizing: border-box;
   font-family: 'Poppins', Arial, sans-serif;
 }
-
+/*
 html {
   scroll-behavior: smooth;
 }
-
+*/
 body {
   background-color: #0f172a; /* Biru gelap pekat (modern black) */
   color: #f8fafc; /* Font jadi putih tulang agar nyaman dibaca */
+  opacity: 1;
+  transition: opacity 0.5s ease; /* Durasi memudar saat pindah */
 }
 
-/* NAVBAR */
-.navbar {
-  position: sticky;
-  top: 20px;
-  z-index: 1000;
+body.fade-out {
+    opacity: 0;
+}
 
+/* NAVBAR UTAMA (Default) */
+.navbar {
+  position: fixed; /* Ganti dari sticky ke fixed */
+  top: 20px;
+  left: 40px;
+  right: 40px;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 14px 40px;
-  margin: 20px 40px;
-
-  background: rgba(30, 41, 59, 0.7); /* Transparan gelap */
+  /* Hapus margin: 20px 40px; karena sudah diatur via top/left/right */
+  background: rgba(30, 41, 59, 0.7);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px); /* Efek blur kaca */
+  backdrop-filter: blur(10px);
+  
+  /* KUNCI: Transisi semua properti agar tidak patah-patah */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+/* NAVBAR SAAT SCROLL (Mode Tenang) */
+.navbar.scrolled {
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 60px;
+  background: rgba(15, 23, 42, 0.95) !important;
+  border-radius: 0 0 20px 20px; /* Lengkung bawah saja */
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.6);
 }
 
 .nav-left {
@@ -104,6 +123,11 @@ body {
   border: 1px solid rgba(237, 8, 27, 0.2);
 }
 
+.hero {
+  margin-top: 120px; /* Beri jarak agar tidak tertutup navbar */
+  /* Kode lainnya tetap */
+}
+
 .hero-text {
   max-width: 50%;
   color: #fff;
@@ -138,9 +162,16 @@ body {
   text-decoration: none;
   transition: 0.3s;
 }
+.btn {
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
 
 .btn:hover {
+  transform: scale(1.05); /* Membesar dikit pas di hover */
   background-color: #6a52e0;
+  box-shadow: 0 10px 20px rgba(123, 97, 255, 0.3);
 }
 
 /* IMAGE */
@@ -553,8 +584,8 @@ body {
 
 /* Kartu Per Kategori */
 .skill-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
+  background: #1e293b !important;;
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -577,7 +608,7 @@ body {
 .skill-header h3 {
   font-size: 1.1rem;
   margin: 0;
-  color: #1f2937;
+  color: #ffffff !important;
 }
 
 /* Gaya Tags (Badges) */
@@ -587,31 +618,42 @@ body {
   gap: 8px;
 }
 
+/* GAYA SEMUA TAG (SERAGAM & KONTRAS) */
 .tag {
-  background: #f3f4f6;
-  color: #4b5563;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  transition: all 0.2s;
+    /* Background gelap supaya kontras dengan teks */
+    background: rgba(30, 41, 59, 0.8) !important; 
+    color: #cbd5e1 !important; 
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    /* Border halus biar tegas tapi gak norak */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    display: inline-block;
+    transition: all 0.3s ease;
+    cursor: default;
 }
 
+
+/* Soft Skills Tags (Base tetap sama, hanya beda hover nanti) */
+.tag.tag-soft {
+  /* Biar sama dengan tag lain saat diam */
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* --- 3. HOVER EFFECTS --- */
+
+/* Hover Umum (Jadi Ungu) */
 .tag:hover {
-  background: #818CF8; /* Warna ungu seperti screenshot kamu */
-  color: white;
-  cursor: default;
+  background: #818CF8 !important;
+  color: #ffffff !important;
+  border-style: solid !important;
 }
 
-/* Tag khusus untuk yang sedang dipelajari (Garis putus-putus) */
-.tag-learning {
-  border: 1px dashed #818CF8;
-  background: #f5f3ff;
-}
-
-/* Tag khusus soft skills (Nuansa Hijau agar terlihat ramah/interpersonal) */
-.tag-soft:hover {
+/* Hover Khusus Soft Skills (Jadi Hijau) */
+.tag.tag-soft:hover {
   background: #10B981 !important;
+  color: #ffffff !important;
 }
 
 /* Tag khusus sertifikat (Nuansa Biru Tua agar terlihat formal/kredibel) */
@@ -630,3 +672,153 @@ body {
   }
 }
 
+/* Keadaan awal: Bersih tapi transparan & jauh di bawah */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px); 
+    
+    /* Gue saranin durasi 0.8s - 1.2s biar kerasa responsif */
+    transition: opacity 1.0s ease-out, 
+                transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Pake bezier biar ada efek sedikit membal */
+    
+    visibility: hidden;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Penanda menu aktif */
+.nav-menu li.active-menu {
+    background: #7b61ff;
+}
+
+.nav-menu li.active-menu a {
+    color: #fff;
+}
+
+/* --- FILTER PROJECTS STYLING --- */
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: rgba(30, 41, 59, 0.6);
+  color: #cbd5e1;
+  border: 1px solid rgba(123, 97, 255, 0.3);
+  padding: 10px 24px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-btn:hover {
+  background: rgba(123, 97, 255, 0.2);
+  border-color: #7b61ff;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #7b61ff;
+  color: white;
+  box-shadow: 0 4px 15px rgba(123, 97, 255, 0.4);
+  border-color: #7b61ff;
+}
+
+/* Animasi untuk Project Wrapper saat Filter */
+.project-wrapper {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Class tambahan untuk animasi JS */
+.project-hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+}
+
+/* --- FOOTER STYLING --- */
+.main-footer {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px 0;
+  margin-top: 100px; /* Jarak dari section terakhir */
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.main-footer p {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-icon {
+  text-decoration: none;
+  color: #cbd5e1;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(123, 97, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.footer-icon:hover {
+  background: rgba(123, 97, 255, 0.1);
+  color: #7b61ff;
+  border-color: #7b61ff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(123, 97, 255, 0.2);
+}
+
+/* --- BACK TO TOP BUTTON --- */
+#backToTop {
+  display: none; /* Sembunyi dulu sebelum di-scroll */
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #7b61ff; /* Ungu khas lu */
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 50%; /* Bulat sempurna */
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
+  line-height: 20px;
+}
+
+#backToTop:hover {
+  background-color: #6a52e0;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(123, 97, 255, 0.4);
+}

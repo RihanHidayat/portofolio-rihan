@@ -5,6 +5,7 @@
   <title>Pengalaman | Rihan</title>
   <link rel="icon" type="image/x-icon" href="asset/image/fvc.ico">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -12,7 +13,7 @@
   <!-- NAVBAR -->
    <nav class="navbar">
   <div class="nav-left">
-    <img src="asset/image/profile.jpeg" alt="Profile">
+    <img src="asset/image/profile.jpeg" alt="Profile" loading="lazy">
     <span>Rihan Hidayat</span>
   </div>
 
@@ -26,13 +27,13 @@
 </nav>
 
 
-<section class="section">
+<section id="experience" class="section">
     <h2 class="section-title">Pengalaman</h2>
   
   <div class="experience-wrapper">  
   <h3 class="experience-category">Pengalaman Magang</h3>
 
-  <div class="experience-card">
+  <div class="experience-card reveal">
 
     <div class="experience-header">
       <h4>Data Management Intern</h4>
@@ -65,8 +66,8 @@
 
       <!-- KANAN -->
       <div class="experience-images">
-        <img src="asset/image/dalapa.png" alt="dalapa data">
-        <img src="asset/image/opm.png" alt="Pengukuran OPM" class="photo">
+        <img src="asset/image/dalapa.png" alt="dalapa data" loading="lazy">
+        <img src="asset/image/opm.png" alt="Pengukuran OPM" class="photo" loading="lazy">
       </div>
 
     </div>
@@ -76,8 +77,7 @@
   <div class="experience-wrapper"> 
     <h3 class="experience-category">Pengalaman Kepanitiaan</h3>
 
-  <div class="experience-card">
-
+  <div class="experience-card reveal" style="transition-delay: 0.2s;">
     <div class="experience-header">
       <h4>Tim Acara, Panitia EMPOWER 2023</h4>
       <p>
@@ -89,7 +89,7 @@
   <div class="experience-row panitia-row">
 
     <div class="experience-images">
-      <img src="asset/image/empower.jpeg" alt="Panitia EMPOWER 2023">
+      <img src="asset/image/empower.jpeg" alt="Panitia EMPOWER 2023" loading="lazy">
     </div>
 
     <div class="experience-text">
@@ -105,8 +105,7 @@
     </div>
   </div>
 
-  <div class="experience-card">
-
+  <div class="experience-card reveal" style="transition-delay: 0.4s;">
     <div class="experience-header">
       <h4><br>Divisi Humas, Panitia Recon 2023</h4>
       <p>
@@ -117,7 +116,7 @@
 
   <div class="experience-row panitia-row">
     <div class="experience-images">
-      <img src="asset/image/sertifikat/staf humas.png" alt="Panitia recon 2023">
+      <img src="asset/image/sertifikat/staf humas.png" alt="Panitia recon 2023" loading="lazy">
     </div>
     <div class="experience-text">
       <p><br>
@@ -132,6 +131,23 @@
 
   </div>
 </section>
+
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>© 2024 Rihan Hidayat. Built with &lt;/&gt; & Coffee.</p>
+    <div class="footer-links">
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rihanhidayat27@gmail.com" target="_blank" class="footer-icon">
+        <span>📧 Email</span>
+      </a>
+      <a href="https://www.linkedin.com/in/rihan-hidayat-407619289/" target="_blank" class="footer-icon">
+        <span>🔗 LinkedIn</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" title="Kembali ke atas">↑</button>
 
 </body>
 </html>
