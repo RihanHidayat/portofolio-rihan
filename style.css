@@ -817,33 +817,34 @@ body.fade-out {
   line-height: 20px;
 }
 
+/* --- BACK TO TOP BUTTON --- */
 #backToTop:hover {
   background-color: #6a52e0;
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(123, 97, 255, 0.4);
-
+} /* <--- KURUNG INI TADI ILANG, MAKANYA BAWAHNYA ERROR */
 
 /* --- RESPONSIVE FOOTER UNTUK HP --- */
 @media (max-width: 600px) {
   .main-footer {
-    margin-top: 60px; /* Jarak lebih manusiawi buat HP */
+    margin-top: 60px;
     padding: 30px 20px;
   }
 
   .footer-content {
-    gap: 15px; /* Spasi antar elemen lebih rapat */
+    gap: 15px;
   }
 
   .footer-links {
-    flex-direction: column; /* Link Email & LinkedIn jadi tumpuk vertikal */
+    flex-direction: column; /* Biar Email & LinkedIn numpuk vertikal */
     width: 100%;
     gap: 10px;
   }
 
   .footer-icon {
-    display: block; /* Biar tombolnya full lebar HP */
+    display: block; 
     text-align: center;
-    width: 80%; /* Biar gak nempel banget ke pinggir */
+    width: 80%; 
     margin: 0 auto;
   }
 
@@ -851,5 +852,4 @@ body.fade-out {
     font-size: 13px;
     padding: 0 10px;
   }
-
-}}
+}
