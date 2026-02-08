@@ -1,38 +1,29 @@
-@media (max-width: 768px) {
-  .experience-row {
-    flex-direction: column;
-  }
-
-  .experience-images img {
-    height: auto;
-  }
-}
-
+/*---------------------------------------------------- Ukuran,jenis tulisan ---------------------------------------------------*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', Arial, sans-serif;
 }
-/*
-html {
-  scroll-behavior: smooth;
-}
-*/
+
+/*------------------------------------------------------------- Body -----------------------------------------------------------*/
 body {
   background-color: #0f172a; /* Biru gelap pekat (modern black) */
   color: #f8fafc; /* Font jadi putih tulang agar nyaman dibaca */
   opacity: 1;
   transition: opacity 0.5s ease; /* Durasi memudar saat pindah */
+  min-height: 100vh; 
+  display: flex; 
+  flex-direction: column; 
 }
 
 body.fade-out {
     opacity: 0;
 }
 
-/* NAVBAR UTAMA (Default) */
+/*-----------------------------------------------------------Navigasi bar------------------------------------------------------*/
 .navbar {
-  position: fixed; /* Ganti dari sticky ke fixed */
+  position: fixed; 
   top: 20px;
   left: 40px;
   right: 40px;
@@ -41,14 +32,11 @@ body.fade-out {
   justify-content: space-between;
   align-items: center;
   padding: 14px 40px;
-  /* Hapus margin: 20px 40px; karena sudah diatur via top/left/right */
   background: rgba(30, 41, 59, 0.7);
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border: 1px solid rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  
-  /* KUNCI: Transisi semua properti agar tidak patah-patah */
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
@@ -82,7 +70,6 @@ body.fade-out {
   color: #ffffff;
 }
 
-/* MENU */
 .nav-menu {
   display: flex;
   list-style: none;
@@ -109,7 +96,17 @@ body.fade-out {
   color: #fff;
 }
 
-/* HERO */
+/* Penanda menu aktif */
+.nav-menu li.active-menu {
+    background: #7b61ff;
+}
+
+.nav-menu li.active-menu a {
+    color: #fff;
+}
+
+
+/*--------------------------------------------------------- HERO --------------------------------------------------------------*/
 .hero {
   display: flex;
   justify-content: space-between;
@@ -121,12 +118,9 @@ body.fade-out {
   background: linear-gradient(135deg, #1e1b4b, #0f172a); /* Gelap ke ungu tua */
   border-radius: 20px;
   border: 1px solid rgba(237, 8, 27, 0.2);
+  margin-top: 120px;
 }
 
-.hero {
-  margin-top: 120px; /* Beri jarak agar tidak tertutup navbar */
-  /* Kode lainnya tetap */
-}
 
 .hero-text {
   max-width: 50%;
@@ -152,35 +146,6 @@ body.fade-out {
   color: #c6b1b1;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  background-color: #7b61ff;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.btn {
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                background-color 0.3s ease, 
-                box-shadow 0.3s ease;
-}
-
-.btn:hover {
-  transform: scale(1.05); /* Membesar dikit pas di hover */
-  background-color: #6a52e0;
-  box-shadow: 0 10px 20px rgba(123, 97, 255, 0.3);
-}
-
-/* IMAGE */
-.hero-image img {
-  width: 260px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-}
-
 /* IMAGE CONTAINER */
 .hero-image {
   position: relative;
@@ -190,6 +155,9 @@ body.fade-out {
 .hero-image img {
   position: relative;
   z-index: 2;
+  width: 260px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 /* BAYANGAN BELAKANG FOTO */
@@ -205,7 +173,28 @@ body.fade-out {
 }
 
 
-/* SECTION */
+/*--------------------------------------------------------------- BUTTON -------------------------------------------------------*/
+.btn {
+  display: inline-block;
+  background-color: #7b61ff;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: 0.3s;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05); /* Membesar dikit pas di hover */
+  background-color: #6a52e0;
+  box-shadow: 0 10px 20px rgba(123, 97, 255, 0.3);
+}
+
+
+/* ----------------------------------------------------------- SECTION ----------------------------------------------------------*/
 .section {
   padding: 80px 20px;
   text-align: center;
@@ -218,21 +207,22 @@ body.fade-out {
 }
 
 .section p {
-  max-width: 650px;   /* ← INI KUNCI */
+  max-width: 650px;   
   margin: 0 auto;
   color: #cbd5e1;
   line-height: 1.8;
   font-size: 16px;
 }
 
+/*--------------------------------------------------------- Tentang Saya ----------------------------------------------------------*/
 /* Offset biar ga ketutup navbar */
 #about {
-  scroll-margin-top: 140px;
+  scroll-margin-top: 100px;
   /* Ganti background putih/ungu terang jadi transparan/dark */
   background: rgba(30, 41, 59, 0.5) !important; 
-  margin: 0 40px 40px;
+  margin: 20px;
   border-radius: 24px;
-  padding: 80px 60px;
+  padding: 40px 20px;
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -246,7 +236,8 @@ body.fade-out {
   color: #cbd5e1 !important; /* Pastikan teks terbaca */
 }
 
-/* Pengalaman */
+/*----------------------------------------------------------- Pengalaman --------------------------------------------------------*/
+/* Biar wrapper pengalaman dan projek tidak terlalu lebar di HP */
 .experience-wrapper:hover {
   transform: translateY(-5px);
   border-color: rgba(123, 97, 255, 0.3);
@@ -291,15 +282,13 @@ body.fade-out {
   font-weight: 400;
 }
 
-
-
 /* kanan */
 .experience-images {
   flex: 4; /* biar teks lebih dominan */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
-  margin-top: 30px; /* ini yang bikin turun */
+  margin-top: 30px; 
 }
 
 
@@ -307,14 +296,13 @@ body.fade-out {
   width: 100%;
   height: 140px;
   object-fit: contain;
-  background: #334155; /* Background gambar agar tidak kontras putih */
+  background: #334155; 
   padding: 8px;
   border-radius: 12px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* foto lapangan */
 .experience-images img.photo {
   object-fit: cover;
 }
@@ -329,15 +317,34 @@ body.fade-out {
   border: 1px solid rgba(255, 255, 255, 0.05);
   transition: transform 0.3s ease;
 }
-/* Responsif untuk HP */
-@media (max-width: 600px) {
-  .experince-section {
-    grid-template-columns: 1fr;
-  }
+
+/* --- KATEGORI (PENGALAMAN MAGANG / KEPANITIAAN) --- */
+.experience-category {
+  color: #7b61ff; 
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
+.panitia-row .experience-text {
+  margin: 0;          
+  max-width: 100%;    /* biar ikut flex normal */
+  text-align: justify;
+}
 
-/* Judul utama */
+.panitia-row .experience-images {
+  margin-top: 0;      /* hilangin efek turun */
+}
+
+.panitia-row {
+  margin: 0 auto;
+  max-width: 1100px;
+  padding-left: 60px; /* ini yang bikin geser ke kanan */
+}
+
+/*---------------------------------------------------- Judul utama -------------------------------------------------------------*/
 /* --- SECTION TITLE (PENGALAMAN, PROJEK, DLL) --- */
 .section-title {
   text-align: center;
@@ -353,8 +360,6 @@ body.fade-out {
   /* Garis pembatas elegan (semi transparan) */
   border-top: 1.5px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
-}
-.section-title {
   background: linear-gradient(to right, #fff, #a997ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -362,34 +367,7 @@ body.fade-out {
   width: 100%;
 }
 
-
-/* --- KATEGORI (PENGALAMAN MAGANG / KEPANITIAAN) --- */
-.experience-category {
-  color: #7b61ff; /* Warna Ungu Ikonik kamu */
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 30px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.panitia-row .experience-text {
-  margin: 0;          /* hapus auto center */
-  max-width: 100%;    /* biar ikut flex normal */
-  text-align: justify;
-}
-
-.panitia-row .experience-images {
-  margin-top: 0;      /* hilangin efek turun */
-}
-
-.panitia-row {
-  margin: 0 auto;
-  max-width: 1100px;
-  padding-left: 60px; /* ini yang bikin geser ke kanan */
-}
-
-/* Certifcates*/
+/*----------------------------------------------------- Certifcates ------------------------------------------------------------*/
 
 /* WRAPPER */
 .certificate-wrapper {
@@ -447,20 +425,13 @@ body.fade-out {
   font-size: 13px;
   color: #999;
 }
-/* Responsif untuk HP */
-@media (max-width: 600px) {
-  .certificate-section {
-    grid-template-columns: 1fr;
-  }
-}
 
-/* project*/
+/*-------------------------------------------------------- project --------------------------------------------------------------*/
 .project-wrapper {
   max-width: 1200px;
   margin: 0 auto 60px;
 }
 
-/* ⬇️ INI KUNCI UTAMANYA */
 .project-featured {
   display: flex;
   gap: 40px;
@@ -500,6 +471,7 @@ body.fade-out {
   line-height: 1.8;
   color: #94a3b8 !important; /* Deskripsi jadi abu-abu terang */
   max-width: 100%;
+  text-align: justify;
 }
 
 .project-tech {
@@ -531,20 +503,6 @@ body.fade-out {
   text-align: left;
 }
 
-.btn {
-  display: inline-block;
-  background-color: #7b61ff;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background-color: #6a52e0;
-}
-
 .project-images {
   flex: 4;
   display: grid;
@@ -558,22 +516,20 @@ body.fade-out {
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-/* =========================
-   PROJECT DESC JUSTIFY
-========================= */
-
-.project-desc {
-  text-align: justify;
+/* Animasi untuk Project Wrapper saat Filter */
+.project-wrapper {
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* Responsif untuk HP */
-@media (max-width: 600px) {
-  .project-section {
-    grid-template-columns: 1fr;
-  }
+/* Class tambahan untuk animasi JS */
+.project-hidden {
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
 }
 
-/* Container Utama skill*/
+
+/*------------------------------------------------- Container Utama skill --------------------------------------------------------*/
 .skills-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -611,6 +567,7 @@ body.fade-out {
   color: #ffffff !important;
 }
 
+/*------------------------------------------------------- TAG ------------------------------------------------------------------*/
 /* Gaya Tags (Badges) */
 .tags {
   display: flex;
@@ -665,19 +622,12 @@ body.fade-out {
   background: #2563EB !important;
 }
 
-/* Responsif untuk HP */
-@media (max-width: 600px) {
-  .skills-section {
-    grid-template-columns: 1fr;
-  }
-}
-
+/*------------------------------------------------------------ Reveal -----------------------------------------------------------*/
 /* Keadaan awal: Bersih tapi transparan & jauh di bawah */
 .reveal {
     opacity: 0;
     transform: translateY(30px); 
     
-    /* Gue saranin durasi 0.8s - 1.2s biar kerasa responsif */
     transition: opacity 1.0s ease-out, 
                 transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Pake bezier biar ada efek sedikit membal */
     
@@ -690,16 +640,7 @@ body.fade-out {
     visibility: visible;
 }
 
-/* Penanda menu aktif */
-.nav-menu li.active-menu {
-    background: #7b61ff;
-}
-
-.nav-menu li.active-menu a {
-    color: #fff;
-}
-
-/* --- FILTER PROJECTS STYLING --- */
+/* ------------------------------------------------- FILTER PROJECTS STYLING --------------------------------------------------- */
 
 .filter-container {
   display: flex;
@@ -734,25 +675,14 @@ body.fade-out {
   border-color: #7b61ff;
 }
 
-/* Animasi untuk Project Wrapper saat Filter */
-.project-wrapper {
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
 
-/* Class tambahan untuk animasi JS */
-.project-hidden {
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-}
-
-/* --- FOOTER STYLING --- */
+/* ----------------------------------------------------------- FOOTER STYLING -------------------------------------------------- */
 .main-footer {
   background: rgba(30, 41, 59, 0.4);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 40px 0;
-  margin-top: 100px; /* Jarak dari section terakhir */
+  margin-top: auto; /* Jarak dari section terakhir */
   text-align: center;
 }
 
@@ -794,7 +724,7 @@ body.fade-out {
   box-shadow: 0 5px 15px rgba(123, 97, 255, 0.2);
 }
 
-/* --- BACK TO TOP BUTTON --- */
+/* ---------------------------------------------------- BACK TO TOP BUTTON ----------------------------------------------------- */
 #backToTop {
   display: none; /* Sembunyi dulu sebelum di-scroll */
   position: fixed;
@@ -803,7 +733,7 @@ body.fade-out {
   z-index: 99;
   border: none;
   outline: none;
-  background-color: #7b61ff; /* Ungu khas lu */
+  background-color: #7b61ff; 
   color: white;
   cursor: pointer;
   padding: 15px;
@@ -817,14 +747,183 @@ body.fade-out {
   line-height: 20px;
 }
 
-/* --- BACK TO TOP BUTTON --- */
+/* ---------------------------------------------------- BACK TO TOP BUTTON ----------------------------------------------------- */
 #backToTop:hover {
   background-color: #6a52e0;
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(123, 97, 255, 0.4);
-} /* <--- KURUNG INI TADI ILANG, MAKANYA BAWAHNYA ERROR */
+} 
 
-/* --- RESPONSIVE FOOTER UNTUK HP --- */
+/* ------------------------------------------------ RESPONSIVE FOOTER UNTUK HP -------------------------------------------------- */
+@media (max-width: 768px) {
+  .experience-row {
+    flex-direction: column;
+  }
+
+  .experience-images img {
+    height: auto;
+  }
+}
+
+/* Media Hp NAVBAR */
+@media (max-width: 600px) {
+  .navbar {
+    left: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    top: 10px;
+    flex-direction: column; /* Nama di atas, menu di bawah */
+    gap: 10px;
+  }
+  
+  .nav-left span {
+    display: block; /* Sembunyikan nama di HP biar lega, cukup ikon saja */
+    font-size: 13px;
+  }
+  
+  .nav-menu {
+    gap: 5px; /* Perkecil jarak antar menu */
+    width: 100%;
+    overflow-x: auto; /* KUNCI: Biar bisa di-scroll ke samping */
+    white-space: nowrap; /* Biar menu nggak turun ke bawah */
+    padding-bottom: 5px;
+    justify-content: flex-start; /* Start dari kiri biar bisa di-scroll */
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Sembunyikan scrollbar */
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-menu li {
+    padding: 6px 12px;
+    font-size: 11px; /* Kecilin font menu */
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column-reverse; /* Foto di atas, teks di bawah (opsional, bisa dibalik) */
+    padding: 30px 20px;
+    margin: 100px 20px 20px; /* Jarak aman dari navbar */
+    margin-top: 120px !important; 
+    text-align: center;
+    height: auto;
+    gap: 40px; /* Kasih jarak antara elemen */
+  }
+
+  .hero-text {
+    max-width: 100%;
+    order: 2; /* Pastikan teks di bawah foto jika column-reverse */
+  }
+
+  .hero-text h1 {
+    font-size: 28px; /* Kecilin dikit biar gak makan tempat */
+  }
+
+  .hero-image {
+    order: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative; /* Kunci biar bayangan nempel ke container ini */
+    margin-bottom: 20px;
+    
+  }
+
+  .hero-image img {
+    width: 200px; /* Ukuran pas di HP */
+    height: auto;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  .photo-shadow {
+    width: 200px; /* Harus sama dengan lebar foto */
+    height: 100%;
+    /* RESET posisi dari desktop */
+    right: auto; 
+    top: 15px; /* Turun dikit */
+    left: 50%; /* Taruh di tengah dulu */
+    
+    /* GESER sedikit ke kanan biar estetik */
+    /* -50% itu buat center murni, +15px buat efek bayangan geser kanan */
+    transform: translateX(calc(-50% + 15px)); 
+    
+    z-index: 1; /* Di belakang foto */
+    border-radius: 20px;
+    position: absolute;
+  }
+}
+
+@media (max-width: 768px) {
+  .experience-wrapper, .project-featured {
+    padding: 30px 20px !important;
+    margin: 20px !important;
+  }
+  
+  .project-featured {
+    flex-direction: column; /* Gambar di bawah/atas deskripsi */
+  }
+
+  .panitia-row {
+    flex-direction: column !important; /* Paksa foto di atas, teks di bawah */
+    padding-left: 0 !important; 
+    align-items: center !important;
+    gap: 20px;
+  }
+
+  .panitia-row .experience-images {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* KUNCI: Foto jadi di tengah layar HP */
+  }
+
+  .panitia-row .experience-images img {
+    max-width: 250px; /* Ukuran pas buat layar HP */
+    margin: 0 auto;
+  }
+
+  .panitia-row .experience-text {
+    text-align: justify; /* Teks tetep rapi kiri-kanan */
+    width: 100%;
+  }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+  .skills-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+  .experince-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+  .certificate-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Responsif untuk HP */
+@media (max-width: 600px) {
+  .project-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
 @media (max-width: 600px) {
   .main-footer {
     margin-top: 60px;
